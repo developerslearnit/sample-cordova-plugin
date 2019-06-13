@@ -2,7 +2,8 @@ package com.sample.cordova.mobile.sdk;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
-
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

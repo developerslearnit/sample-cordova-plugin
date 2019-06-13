@@ -1,5 +1,6 @@
 package com.sample.cordova.mobile.sdk;
 
+import android.content.Context;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
 import android.content.SharedPreferences;

@@ -37,9 +37,9 @@ public class samplecordovapreference extends CordovaPlugin {
                 String prefVal = args.getString(1);
                 this.set(prefKey, prefVal, callbackContext);
                 return true;
-            } else if (action.equals(get)) {
+            } else if (action.equals("get")) {
                 String prefKey = args.getString(0);
-                editor.getString(_key, null);
+                editor.getString(prefKey, null);
             } else {
                 return false;
             }

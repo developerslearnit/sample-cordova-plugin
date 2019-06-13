@@ -39,7 +39,8 @@ public class samplecordovapreference extends CordovaPlugin {
                 return true;
             } else if (action.equals("get")) {
                 String prefKey = args.getString(0);
-                editor.getString(prefKey, null);
+                this.get(prefKey, callbackContext);
+                // editor.getString(prefKey, null);
             } else {
                 return false;
             }
@@ -70,7 +71,7 @@ public class samplecordovapreference extends CordovaPlugin {
         if (_key != null) {
 
             JSONObject successObj = new JSONObject();
-            successObj.put(_key, editor.getString(_key, null));
+            successObj.put(_key, "test");
             callbackContext.success(successObj);
         } else {
             callbackContext.error("Expected two integer arguments.");

@@ -46,11 +46,13 @@ public class samplecordovapreference extends CordovaPlugin {
             }
         }
 
-        catch (Exception e) {
+        catch (JSONException e) {
             JSONObject errObj = new JSONObject();
             errObj.put("message", e.getMessage());
             return false;
         }
+
+        return flase;
     }
 
     private void set(String _key, String _val, CallbackContext callbackContext) {
@@ -71,7 +73,7 @@ public class samplecordovapreference extends CordovaPlugin {
         if (_key != null) {
 
             JSONObject successObj = new JSONObject();
-            successObj.put(_key, "test");
+            successObj.put(_key, pref.getString(_key, null));
             callbackContext.success(successObj);
         } else {
             callbackContext.error("Expected two integer arguments.");

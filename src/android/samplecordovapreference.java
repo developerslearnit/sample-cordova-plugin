@@ -30,7 +30,7 @@ public class samplecordovapreference extends CordovaPlugin {
     }
 
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
         try {
             if (action.equals("set")) {
@@ -55,9 +55,9 @@ public class samplecordovapreference extends CordovaPlugin {
         if (_key != null && _val != null) {
             editor.putString(_key, _val);
             editor.commit();
-            JSONObject successObj = new JSONObject();
-            successObj.put(_key, _val);
-            callbackContext.success(successObj);
+            // JSONObject successObj = new JSONObject();
+            // successObj.put(_key, _val);
+            callbackContext.success(_val);
         } else {
             callbackContext.error("Expected two integer arguments.");
         }
@@ -68,9 +68,9 @@ public class samplecordovapreference extends CordovaPlugin {
 
         if (_key != null) {
 
-            JSONObject successObj = new JSONObject();
-            successObj.put(_key, pref.getString(_key, null));
-            callbackContext.success(successObj);
+            // JSONObject successObj = new JSONObject();
+            // successObj.put(_key, pref.getString(_key, null));
+            callbackContext.success(pref.getString(_key, null));
         } else {
             callbackContext.error("Expected two integer arguments.");
         }

@@ -77,10 +77,6 @@ public class samplecordovapreference extends CordovaPlugin {
 
     protected void handleError(String errorMsg) {
         try {
-            // Log error using plugin tag
-            Log.e(TAG, errorMsg);
-
-            // Create error object
             JSONObject error = new JSONObject();
             error.put("error", errorMsg);
             _context.error(error);

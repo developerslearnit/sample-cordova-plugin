@@ -19,6 +19,7 @@ public class samplecordovapreference extends CordovaPlugin {
 
     // Context
     Context _context;
+    protected CallbackContext context;
 
     int INIT_PREF = 0;
 
@@ -79,7 +80,7 @@ public class samplecordovapreference extends CordovaPlugin {
         try {
             JSONObject error = new JSONObject();
             error.put("error", errorMsg);
-            // _context.error(error);
+            context.error(error);
 
         } catch (JSONException e) {
 

@@ -45,7 +45,7 @@ public class samplecordovapreference extends CordovaPlugin {
             }
             return false;
         } catch (Exception e) {
-            throw JSONException(e.getMessage());
+
             handleError(e.getMessage());
             return false;
         }

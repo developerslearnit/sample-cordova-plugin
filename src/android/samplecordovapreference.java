@@ -52,7 +52,7 @@ public class samplecordovapreference extends CordovaPlugin {
             return false;
         }
 
-        return flase;
+        return false;
     }
 
     private void set(String _key, String _val, CallbackContext callbackContext) {

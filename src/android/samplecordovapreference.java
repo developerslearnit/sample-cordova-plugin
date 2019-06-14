@@ -30,7 +30,7 @@ public class samplecordovapreference extends CordovaPlugin {
     }
 
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
 
         try {
             if (action.equals("set")) {
@@ -45,6 +45,7 @@ public class samplecordovapreference extends CordovaPlugin {
             }
             return false;
         } catch (Exception e) {
+            throw JSONException(e.getMessage());
             handleError(e.getMessage());
             return false;
         }

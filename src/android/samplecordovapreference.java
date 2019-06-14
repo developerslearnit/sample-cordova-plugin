@@ -31,29 +31,28 @@ public class samplecordovapreference extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
-        try {
-            if (action.equals("set")) {
-                String prefKey = args.getString(0);
-                String prefVal = args.getString(1);
-                this.set(prefKey, prefVal, callbackContext);
-                return true;
-            } else if (action.equals("get")) {
-                String prefKey = args.getString(0);
-                this.get(prefKey, callbackContext);
-                // editor.getString(prefKey, null);
-            } else {
-                return false;
-            }
+        // try {
+        if (action.equals("set")) {
+            String prefKey = args.getString(0);
+            String prefVal = args.getString(1);
+            this.set(prefKey, prefVal, callbackContext);
+            return true;
+        } else if (action.equals("get")) {
+            String prefKey = args.getString(0);
+            this.get(prefKey, callbackContext);
+            return true;
         }
-
-        catch (JSONException e) {
-            JSONObject errObj = new JSONObject();
-            errObj.put("message", e.getMessage());
-            return false;
-        }
-
         return false;
     }
+    // }
+
+    // catch (JSONException e) {
+    // JSONObject errObj = new JSONObject();
+    // errObj.put("message", e.getMessage());
+    // return false;
+    // }
+
+    // }
 
     private void set(String _key, String _val, CallbackContext callbackContext) {
         if (_key != null && _val != null) {

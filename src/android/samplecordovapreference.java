@@ -79,10 +79,10 @@ public class samplecordovapreference extends CordovaPlugin {
         try {
             JSONObject error = new JSONObject();
             error.put("error", errorMsg);
-            _context.error(error);
+            // _context.error(error);
 
         } catch (JSONException e) {
-            Log.e(TAG, e.toString());
+
         }
     }
 }

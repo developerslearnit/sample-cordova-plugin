@@ -31,28 +31,23 @@ public class samplecordovapreference extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
-        // try {
-        if (action.equals("set")) {
-            String prefKey = args.getString(0);
-            String prefVal = args.getString(1);
-            this.set(prefKey, prefVal, callbackContext);
-            return true;
-        } else if (action.equals("get")) {
-            String prefKey = args.getString(0);
-            this.get(prefKey, callbackContext);
-            return true;
+        try {
+            if (action.equals("set")) {
+                String prefKey = args.getString(0);
+                String prefVal = args.getString(1);
+                this.set(prefKey, prefVal, callbackContext);
+                return true;
+            } else if (action.equals("get")) {
+                String prefKey = args.getString(0);
+                this.get(prefKey, callbackContext);
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            handleError(e.getMessage());
+            return false;
         }
-        return false;
     }
-    // }
-
-    // catch (JSONException e) {
-    // JSONObject errObj = new JSONObject();
-    // errObj.put("message", e.getMessage());
-    // return false;
-    // }
-
-    // }
 
     private void set(String _key, String _val, CallbackContext callbackContext) {
         if (_key != null && _val != null) {
@@ -78,5 +73,20 @@ public class samplecordovapreference extends CordovaPlugin {
             callbackContext.error("Expected two integer arguments.");
         }
 
+    }
+
+    protected void handleError(String errorMsg) {
+        try {
+            // Log error using plugin tag
+            Log.e(TAG, errorMsg);
+
+            // Create error object
+            JSONObject error = new JSONObject();
+            error.put("error", errorMsg);
+            _context.error(error);
+
+        } catch (JSONException e) {
+            Log.e(TAG, e.toString());
+        }
     }
 }
